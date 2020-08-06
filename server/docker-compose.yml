@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  postgres_proffy:
+    container_name: postgres_proffy
+    image: postgres:12
+    volumes:
+      - pgdata_proffy:/var/lib/postgresql/data
+    environment:
+      TZ: America/Fortaleza
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      PG_DATA: /var/lib/postgresql/data
+    ports:
+      - 5432:5432
+volumes:
+  pgdata_proffy:
